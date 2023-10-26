@@ -1,12 +1,26 @@
 import React from 'react';
 import { Logo } from '../logo/logo';
+import { Link } from 'react-router-dom';
+import { RouteLinks } from '../../router/consts';
 
-const WIDTH = 63;
-const HEIGHT = 63;
+const enum ImgStyles {
+  WIDTH = 63,
+  HEIGHT = 63,
+}
 
-export const Header: React.FunctionComponent = () => (
-  <header className="page-header film-card__head">
+interface Props {
+  children?: JSX.Element;
+  className?: string;
+}
+
+export const Header: React.FunctionComponent<Props> = ({
+  children,
+  className = '',
+}) => (
+  <header className={`page-header ${className}`}>
     <Logo />
+
+    {children}
 
     <ul className="user-block">
       <li className="user-block__item">
@@ -14,13 +28,15 @@ export const Header: React.FunctionComponent = () => (
           <img
             src="img/avatar.jpg"
             alt="User avatar"
-            width={WIDTH}
-            height={HEIGHT}
+            width={ImgStyles.WIDTH}
+            height={ImgStyles.HEIGHT}
           />
         </div>
       </li>
       <li className="user-block__item">
-        <a className="user-block__link">Sign out</a>
+        <Link to={RouteLinks.LOGIN} className="user-block__link">
+          Sign out
+        </Link>
       </li>
     </ul>
   </header>

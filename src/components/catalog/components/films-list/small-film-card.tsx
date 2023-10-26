@@ -1,27 +1,39 @@
-import React from 'react';
-import { FilmProps } from '../../../../data/films-data';
+import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import { RouteLinks } from '../../../../router/consts';
+import { FilmProps } from '../../../../mocs/films';
 
-interface SmallFilmCardProps {
+interface Props {
   film: FilmProps;
+  isActive?: boolean;
+  onMouseEnter: (id: number) => void;
+  onMouseLeave: () => void;
 }
 
-export const SmallFilmCard: React.FunctionComponent<SmallFilmCardProps> = ({ film }) => {
-  const { title, imageSrc, alt, width, height, link } = film;
+export const SmallFilmCard: React.FunctionComponent<Props> = ({
+  film,
+  isActive,
+  onMouseEnter,
+  onMouseLeave,
+}) => {
+  const { title, imageSrc, alt, width, height, id } = film;
 
+  const handleMouseEnter = useCallback(() => {
+    onMouseEnter(id);
+  }, [id, onMouseEnter]);
 
-  return(
-    <article className="small-film-card catalog__films-card">
+  return (
+    <article
+      className={'small-film-card catalog__films-card'}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={onMouseLeave}
+      data-active={isActive}
+    >
       <div className="small-film-card__image">
-        <img
-          src={imageSrc}
-          alt={alt}
-          width={width}
-          height={height}
-        />
+        <img src={imageSrc} alt={alt} width={width} height={height} />
       </div>
       <h3 className="small-film-card__title">
-        <Link to={link} className="small-film-card__link">
+        <Link className="small-film-card__link" to={`${RouteLinks.FILMS}/${id}`}>
           {title}
         </Link>
       </h3>
