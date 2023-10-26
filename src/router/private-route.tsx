@@ -7,4 +7,4 @@ interface PrivateRouteProps {
   hasAccess?: boolean;
 }
 
-export const PrivateRoute: FC<PrivateRouteProps> = ({ children, hasAccess = false }) => hasAccess ? children : <Navigate to={RouteLinks.LOGIN} />;
+export const PrivateRoute: FC<PrivateRouteProps> = ({ children, hasAccess = true }) => hasAccess ? children : <Navigate to={RouteLinks.LOGIN} />;

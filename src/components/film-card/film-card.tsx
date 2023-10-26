@@ -1,16 +1,20 @@
 import React from 'react';
 import { FilmProps } from './props';
-import { ButtonsContainer } from './components/film-card-buttons';
 import { Header } from '../header/header';
+import { Poster } from '../poster/poster';
+import { FilmCardButtons } from './components/film-card-buttons';
 
 
-interface FilmCardProps {
+interface Props {
   film: FilmProps;
 }
-const WIDTH = 218;
-const HEIGHT = 327;
 
-export const FilmCard: React.FunctionComponent<FilmCardProps> = ({ film }) => {
+const enum ImgStyles {
+  WIDTH = 218,
+  HEIGHT = 327,
+}
+
+export const FilmCard: React.FunctionComponent<Props> = ({ film }) => {
   const { img, title, genre, year } = film;
 
   return (
@@ -22,20 +26,11 @@ export const FilmCard: React.FunctionComponent<FilmCardProps> = ({ film }) => {
         />
       </div>
 
-      <h1 className="visually-hidden">WTW</h1>
-
-      <Header />
+      <Header className="film-card__head" />
 
       <div className="film-card__wrap">
         <div className="film-card__info">
-          <div className="film-card__poster">
-            <img
-              src={img.src}
-              alt={img.alt}
-              width={WIDTH}
-              height={HEIGHT}
-            />
-          </div>
+          <Poster src={img.src} alt={img.alt} width={ImgStyles.WIDTH} height={ImgStyles.HEIGHT} />
 
           <div className="film-card__desc">
             <h2 className="film-card__title">{title}</h2>
@@ -44,7 +39,7 @@ export const FilmCard: React.FunctionComponent<FilmCardProps> = ({ film }) => {
               <span className="film-card__year">{year}</span>
             </p>
 
-            <ButtonsContainer />
+            <FilmCardButtons />
           </div>
         </div>
       </div>

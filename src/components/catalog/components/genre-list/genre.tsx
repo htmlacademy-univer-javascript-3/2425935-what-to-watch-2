@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-interface GenreProps {
+interface Props {
   genre: string;
   isActive: boolean;
 }
-export const Genre: React.FunctionComponent<GenreProps> = ({ genre, isActive }) => (
+export const Genre: React.FunctionComponent<Props> = ({ genre, isActive }) => (
   <li
     className={`catalog__genres-item catalog__genres-item${
       isActive ? '--active' : ''

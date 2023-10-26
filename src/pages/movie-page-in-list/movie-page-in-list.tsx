@@ -36,7 +36,7 @@ export const MoviePageInList: React.FunctionComponent = () => (
               </div>
             </li>
             <li className="user-block__item">
-              <a className="user-block__link">Sign out</a>
+              <Link to="#" className="user-block__link">Sign out</Link>
             </li>
           </ul>
         </header>
@@ -159,9 +159,9 @@ export const MoviePageInList: React.FunctionComponent = () => (
               />
             </div>
             <h3 className="small-film-card__title">
-              <a className="small-film-card__link" href="film-page.html">
+              <Link className="small-film-card__link" to="film-page.html">
                 Fantastic Beasts: The Crimes of Grindelwald
-              </a>
+              </Link>
             </h3>
           </article>
 
@@ -175,9 +175,9 @@ export const MoviePageInList: React.FunctionComponent = () => (
               />
             </div>
             <h3 className="small-film-card__title">
-              <a className="small-film-card__link" href="film-page.html">
+              <Link className="small-film-card__link" to="film-page.html">
                 Bohemian Rhapsody
-              </a>
+              </Link>
             </h3>
           </article>
 
@@ -191,9 +191,9 @@ export const MoviePageInList: React.FunctionComponent = () => (
               />
             </div>
             <h3 className="small-film-card__title">
-              <a className="small-film-card__link" href="film-page.html">
+              <Link className="small-film-card__link" to="film-page.html">
                 Macbeth
-              </a>
+              </Link>
             </h3>
           </article>
 
@@ -207,9 +207,9 @@ export const MoviePageInList: React.FunctionComponent = () => (
               />
             </div>
             <h3 className="small-film-card__title">
-              <a className="small-film-card__link" href="film-page.html">
+              <Link className="small-film-card__link" to="film-page.html">
                 Aviator
-              </a>
+              </Link>
             </h3>
           </article>
         </div>
