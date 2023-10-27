@@ -21,9 +21,10 @@ export interface FilmInfoProps extends FilmProps {
   year?: number;
   rating?: number;
   ratingCount?: number;
-  description?: FilmDescription;
+  description: FilmDescription;
   bgSrc: string;
   video: string;
+  runTime: string;
 }
 
 export const filmsInfo: FilmInfoProps[] = [
@@ -46,6 +47,7 @@ export const filmsInfo: FilmInfoProps[] = [
       director: 'David Yates',
       starring: 'Eddie Redmayne, Katherine Waterston, Johnny Depp',
     },
+    runTime: '2 h 45 m',
   },
   {
     id: 2,
@@ -66,6 +68,7 @@ export const filmsInfo: FilmInfoProps[] = [
       director: 'Bryan Singer',
       starring: 'Rami Malek, Lucy Boynton, Gwilym Lee',
     },
+    runTime: '1 h 57 m',
   },
   {
     id: 3,
@@ -86,6 +89,7 @@ export const filmsInfo: FilmInfoProps[] = [
       director: 'Justin Kurzel',
       starring: 'Michael Fassbender, Marion Cotillard, David Thewlis',
     },
+    runTime: '2 h 10 m',
   },
   {
     id: 4,
@@ -106,6 +110,7 @@ export const filmsInfo: FilmInfoProps[] = [
       director: 'Martin Scorsese',
       starring: 'Leonardo DiCaprio, Cate Blanchett, Kate Beckinsale',
     },
+    runTime: '2 h 49 m',
   },
   {
     id: 5,
@@ -126,6 +131,7 @@ export const filmsInfo: FilmInfoProps[] = [
       director: 'Lynne Ramsay',
       starring: 'Tilda Swinton, John C. Reilly, Ezra Miller',
     },
+    runTime: '1 h 52 m',
   },
   {
     id: 6,
@@ -146,6 +152,7 @@ export const filmsInfo: FilmInfoProps[] = [
       director: 'Jemaine Clement, Taika Waititi',
       starring: 'Jemaine Clement, Taika Waititi, Jonathan Brugh',
     },
+    runTime: '1 h 26 m',
   },
   {
     id: 7,
@@ -166,6 +173,7 @@ export const filmsInfo: FilmInfoProps[] = [
       director: 'Alejandro González Iñárritu',
       starring: 'Leonardo DiCaprio, Tom Hardy, Domhnall Gleeson',
     },
+    runTime: '2 h 36 m',
   },
   {
     id: 8,
@@ -186,6 +194,7 @@ export const filmsInfo: FilmInfoProps[] = [
       director: 'Peter Howitt',
       starring: 'Rowan Atkinson, John Malkovich, Natalie Imbruglia',
     },
+    runTime: '1 h 28 m',
   },
   {
     id: 9,
@@ -206,6 +215,7 @@ export const filmsInfo: FilmInfoProps[] = [
       director: 'Martin Scorsese',
       starring: 'Leonardo DiCaprio, Emily Mortimer, Mark Ruffalo',
     },
+    runTime: '2 h 18 m',
   },
   {
     id: 10,
@@ -226,6 +236,7 @@ export const filmsInfo: FilmInfoProps[] = [
       director: 'Quentin Tarantino',
       starring: 'John Travolta, Uma Thurman, Samuel L. Jackson',
     },
+    runTime: '2 h 34 m',
   },
   {
     id: 11,
@@ -246,6 +257,7 @@ export const filmsInfo: FilmInfoProps[] = [
       director: 'Joel Coen, Ethan Coen',
       starring: 'Tommy Lee Jones, Javier Bardem, Josh Brolin',
     },
+    runTime: '2 h 2 m',
   },
   {
     id: 12,
@@ -266,6 +278,7 @@ export const filmsInfo: FilmInfoProps[] = [
       director: 'Guy Ritchie',
       starring: 'Jason Statham, Brad Pitt, Benicio Del Toro',
     },
+    runTime: '1 h 42 m',
   },
   {
     id: 13,
@@ -286,6 +299,7 @@ export const filmsInfo: FilmInfoProps[] = [
       director: 'Wes Anderson',
       starring: 'Jared Gilman, Kara Hayward, Bruce Willis',
     },
+    runTime: '1 h 34 m',
   },
   {
     id: 14,
@@ -306,6 +320,7 @@ export const filmsInfo: FilmInfoProps[] = [
       director: 'Jean-Jacques Annaud',
       starring: 'Brad Pitt, David Thewlis, BD Wong',
     },
+    runTime: '2 h 16 m',
   },
   {
     id: 15,
@@ -326,6 +341,7 @@ export const filmsInfo: FilmInfoProps[] = [
       director: 'Jeff Nichols',
       starring: 'Michael Shannon, Joel Edgerton, Kirsten Dunst',
     },
+    runTime: '1 h 52 m',
   },
   {
     id: 16,
@@ -346,6 +362,7 @@ export const filmsInfo: FilmInfoProps[] = [
       director: 'Steven Spielberg',
       starring: 'Tom Cruise, Dakota Fanning, Tim Robbins',
     },
+    runTime: '2 h 56 m',
   },
   {
     id: 17,
@@ -366,6 +383,7 @@ export const filmsInfo: FilmInfoProps[] = [
       director: 'Wes Anderson',
       starring: 'Owen Wilson, Adrien Brody, Jason Schwartzman',
     },
+    runTime: '1 h 31 m',
   },
   {
     id: 18,
@@ -386,6 +404,7 @@ export const filmsInfo: FilmInfoProps[] = [
       director: 'Sally Potter',
       starring: 'Tilda Swinton, Billy Zane, Quentin Crisp',
     },
+    runTime: '1 h 34 m',
   },
   {
     id: 19,
@@ -406,6 +425,7 @@ export const filmsInfo: FilmInfoProps[] = [
       director: 'Joe Penhall',
       starring: 'Jonathan Groff, Holt McCallany, Anna Torv',
     },
+    runTime: '2 h 10 m',
   },
   {
     id: 20,
@@ -426,6 +446,7 @@ export const filmsInfo: FilmInfoProps[] = [
       director: 'Jeff Nichols',
       starring: 'Michael Shannon, Joel Edgerton, Kirsten Dunst',
     },
+    runTime: '1 h 52 m',
   },
   {
     id: 21,
@@ -447,5 +468,6 @@ export const filmsInfo: FilmInfoProps[] = [
       director: 'Wes Anderson',
       starring: 'Bill Murray, Edward Norton, Jude Law, Willem Dafoe, and other',
     },
+    runTime: '1 h 39 m',
   },
 ];

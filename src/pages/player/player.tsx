@@ -9,7 +9,7 @@ import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { formatTime, useFilmById } from '../../hooks/films';
 import { RouteLinks } from '../../router/consts';
 
-export const PlayerPage: React.FC = () => {
+export const PlayerPage: React.FunctionComponent = () => {
   const { id } = useParams();
   const film = useFilmById(id);
 
