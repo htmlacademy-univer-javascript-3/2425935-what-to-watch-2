@@ -6,7 +6,7 @@ interface AddReviewFormProps {
   onSubmit: (rating: string, reviewText: string) => void;
 }
 
-export const AddReview: React.FC<AddReviewFormProps> = ({ onSubmit }) => {
+export const AddReview: React.FunctionComponent<AddReviewFormProps> = ({ onSubmit }) => {
   const [rating, setRating] = useState('');
   const [reviewText, setReviewText] = useState('');
 

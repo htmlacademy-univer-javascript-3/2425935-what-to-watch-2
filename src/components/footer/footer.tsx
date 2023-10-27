@@ -1,7 +1,7 @@
 import React from 'react';
 import { Logo } from '../logo/logo';
 
-export const Footer: React.FC = () => (
+export const Footer: React.FunctionComponent = () => (
   <footer className="page-footer">
     <Logo className='logo__link--light' />
 

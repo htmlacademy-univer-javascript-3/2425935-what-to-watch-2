@@ -7,7 +7,7 @@ interface VideoPlayerProps {
 
 const VIDEO_TIMEOUT = 1000;
 
-const VideoPlayerComponent: React.FC<VideoPlayerProps> = ({ src, poster }) => {
+const VideoPlayerComponent: React.FunctionComponent<VideoPlayerProps> = ({ src, poster }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
