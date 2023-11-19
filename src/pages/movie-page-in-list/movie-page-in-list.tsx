@@ -63,7 +63,7 @@ export const MoviePageInList: React.FunctionComponent = () => (
                 <span>My list</span>
                 <span className="film-card__count">9</span>
               </button>
-              <Link to="add-review.html" className="btn film-card__button">
+              <Link to="/" className="btn film-card__button">
                 Add review
               </Link>
             </div>
@@ -86,17 +86,17 @@ export const MoviePageInList: React.FunctionComponent = () => (
             <nav className="film-nav film-card__nav">
               <ul className="film-nav__list">
                 <li className="film-nav__item film-nav__item--active">
-                  <Link to="#" className="film-nav__link">
+                  <Link to="/" className="film-nav__link">
                     Overview
                   </Link>
                 </li>
                 <li className="film-nav__item">
-                  <Link to="#" className="film-nav__link">
+                  <Link to="/" className="film-nav__link">
                     Details
                   </Link>
                 </li>
                 <li className="film-nav__item">
-                  <Link to="#" className="film-nav__link">
+                  <Link to="/" className="film-nav__link">
                     Reviews
                   </Link>
                 </li>
@@ -159,7 +159,7 @@ export const MoviePageInList: React.FunctionComponent = () => (
               />
             </div>
             <h3 className="small-film-card__title">
-              <Link className="small-film-card__link" to="film-page.html">
+              <Link className="small-film-card__link" to="/">
                 Fantastic Beasts: The Crimes of Grindelwald
               </Link>
             </h3>
@@ -175,7 +175,7 @@ export const MoviePageInList: React.FunctionComponent = () => (
               />
             </div>
             <h3 className="small-film-card__title">
-              <Link className="small-film-card__link" to="film-page.html">
+              <Link className="small-film-card__link" to="/">
                 Bohemian Rhapsody
               </Link>
             </h3>
@@ -191,7 +191,7 @@ export const MoviePageInList: React.FunctionComponent = () => (
               />
             </div>
             <h3 className="small-film-card__title">
-              <Link className="small-film-card__link" to="film-page.html">
+              <Link className="small-film-card__link" to="/">
                 Macbeth
               </Link>
             </h3>
@@ -207,7 +207,7 @@ export const MoviePageInList: React.FunctionComponent = () => (
               />
             </div>
             <h3 className="small-film-card__title">
-              <Link className="small-film-card__link" to="film-page.html">
+              <Link className="small-film-card__link" to="/">
                 Aviator
               </Link>
             </h3>
