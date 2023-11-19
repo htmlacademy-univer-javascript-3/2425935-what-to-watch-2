@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { Genre } from './genre';
 import { useAppSelector } from '../../../../hooks/store';
 
-export const GenreList: React.FC = () => {
+export const GenreList: React.FunctionComponent = () => {
   const activeGenre = useAppSelector((state) => state.genre);
   const stateFilms = useAppSelector((state) => state.films);
 

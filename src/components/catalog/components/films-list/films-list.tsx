@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { SmallFilmCard } from './small-film-card';
-import { filmsInfo } from '../../../../mocs/films';
 import { useAppSelector } from '../../../../hooks/store';
 
 interface Props {
@@ -9,7 +8,7 @@ interface Props {
 }
 
 export const FilmsList: React.FunctionComponent<Props> = ({
-  length = filmsInfo.length,
+  length,
   genre,
 }) => {
   const stateGenreFilms = useAppSelector((state) => state.genreFilms);

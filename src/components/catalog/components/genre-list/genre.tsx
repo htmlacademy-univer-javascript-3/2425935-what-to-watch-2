@@ -7,7 +7,7 @@ interface Props {
   genre: string;
   isActive: boolean;
 }
-export const Genre: React.FC<Props> = ({ genre, isActive }) => {
+export const Genre: React.FunctionComponent<Props> = ({ genre, isActive }) => {
   const dispatch = useAppDispatch();
 
   const handleClick = useCallback(
