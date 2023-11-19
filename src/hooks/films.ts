@@ -1,7 +1,8 @@
 import { useMemo } from 'react';
 import { FilmInfoProps, filmsInfo } from '../mocs/films';
 
-const findFilmById = (films: FilmInfoProps[], id: string) => films.find((film) => film.id === +id);
+const findFilmById = (films: FilmInfoProps[], id: string) =>
+  films.find((film) => film.id === Number(id));
 
 export const useFilmById = (id = '') => {
   const film = useMemo(() => findFilmById(filmsInfo, id), [id]);

@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Genre } from './genre';
-import { GENRE_LIST } from '../../../../data/genre-list';
+import { useAppSelector } from '../../../../hooks/store';
 
-export const GenreList: React.FunctionComponent = () => (
-  <ul className="catalog__genres-list">
-    {GENRE_LIST.map((genre) => (
-      <Genre genre={genre.name} isActive={genre.isActive} key={genre.id} />
-    ))}
-  </ul>
-);
+export const GenreList: React.FC = () => {
+  const activeGenre = useAppSelector((state) => state.genre);
+  const stateFilms = useAppSelector((state) => state.films);
+
+  const genreList = useMemo(() => ['All genres', ...new Set(stateFilms.map((film) => film.genre))], [stateFilms]);
+
+  return (
+    <ul className="catalog__genres-list">
+      {genreList.map((genre) => (
+        <Genre
+          genre={genre}
+          isActive={activeGenre === genre}
+          key={genre}
+        />
+      ))}
+    </ul>
+  );
+};

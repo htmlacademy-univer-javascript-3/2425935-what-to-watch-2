@@ -17,7 +17,7 @@ interface FilmDescription {
 }
 
 export interface FilmInfoProps extends FilmProps {
-  genre?: string;
+  genre: string;
   year?: number;
   rating?: number;
   ratingCount?: number;
@@ -59,7 +59,7 @@ export const filmsInfo: FilmInfoProps[] = [
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
     width: DEFAULT_WIDTH,
     height: DEFAULT_HEIGHT,
-    genre: 'Drama',
+    genre: 'Documentary',
     year: 2018,
     rating: 8.0,
     ratingCount: 4500,
@@ -80,7 +80,7 @@ export const filmsInfo: FilmInfoProps[] = [
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
     width: DEFAULT_WIDTH,
     height: DEFAULT_HEIGHT,
-    genre: 'Drama',
+    genre: 'Dramas',
     year: 2015,
     rating: 6.6,
     ratingCount: 2800,
@@ -101,7 +101,7 @@ export const filmsInfo: FilmInfoProps[] = [
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
     width: DEFAULT_WIDTH,
     height: DEFAULT_HEIGHT,
-    genre: 'Drama',
+    genre: 'Dramas',
     year: 2004,
     rating: 7.5,
     ratingCount: 3200,
@@ -122,7 +122,7 @@ export const filmsInfo: FilmInfoProps[] = [
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
     width: DEFAULT_WIDTH,
     height: DEFAULT_HEIGHT,
-    genre: 'Drama',
+    genre: 'Dramas',
     year: 2011,
     rating: 7.5,
     ratingCount: 2700,
@@ -143,7 +143,7 @@ export const filmsInfo: FilmInfoProps[] = [
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
     width: DEFAULT_WIDTH,
     height: DEFAULT_HEIGHT,
-    genre: 'Comedy',
+    genre: 'Comedies',
     year: 2014,
     rating: 7.7,
     ratingCount: 3100,
@@ -185,7 +185,7 @@ export const filmsInfo: FilmInfoProps[] = [
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
     width: DEFAULT_WIDTH,
     height: DEFAULT_HEIGHT,
-    genre: 'Comedy',
+    genre: 'Comedies',
     year: 2003,
     rating: 6.2,
     ratingCount: 2400,
@@ -269,7 +269,7 @@ export const filmsInfo: FilmInfoProps[] = [
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
     width: DEFAULT_WIDTH,
     height: DEFAULT_HEIGHT,
-    genre: 'Comedy',
+    genre: 'Comedies',
     year: 2000,
     rating: 8.3,
     ratingCount: 3900,
@@ -290,7 +290,7 @@ export const filmsInfo: FilmInfoProps[] = [
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
     width: DEFAULT_WIDTH,
     height: DEFAULT_HEIGHT,
-    genre: 'Comedy',
+    genre: 'Comedies',
     year: 2012,
     rating: 7.8,
     ratingCount: 3200,
@@ -395,7 +395,7 @@ export const filmsInfo: FilmInfoProps[] = [
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
     width: DEFAULT_WIDTH,
     height: DEFAULT_HEIGHT,
-    genre: 'Drama',
+    genre: 'Dramas',
     year: 1992,
     rating: 7.2,
     ratingCount: 2800,
@@ -458,7 +458,7 @@ export const filmsInfo: FilmInfoProps[] = [
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
     width: DEFAULT_WIDTH,
     height: DEFAULT_HEIGHT,
-    genre: 'Drama',
+    genre: 'Dramas',
     year: 2014,
     rating: 8.9,
     ratingCount: 240,
