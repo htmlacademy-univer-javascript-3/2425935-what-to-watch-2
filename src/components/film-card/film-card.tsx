@@ -1,12 +1,12 @@
 import React from 'react';
-import { FilmProps } from './props';
 import { Header } from '../header/header';
 import { Poster } from '../poster/poster';
 import { FilmCardButtons } from './components/film-card-buttons';
+import { Film } from '../../types/films';
 
 
 interface Props {
-  film: FilmProps;
+  film: Film;
 }
 
 const enum ImgStyles {
@@ -15,31 +15,28 @@ const enum ImgStyles {
 }
 
 export const FilmCard: React.FunctionComponent<Props> = ({ film }) => {
-  const { img, title, genre, year } = film;
+  const { backgroundImage, name, genre, released, id, posterImage } = film;
 
   return (
     <section className="film-card">
       <div className="film-card__bg">
-        <img
-          src={img.bgSrc}
-          alt={img.alt}
-        />
+        <img src={backgroundImage} alt={name} />
       </div>
 
       <Header className="film-card__head" />
 
       <div className="film-card__wrap">
         <div className="film-card__info">
-          <Poster src={img.src} alt={img.alt} width={ImgStyles.WIDTH} height={ImgStyles.HEIGHT} />
+          <Poster src={posterImage} alt={name} width={ImgStyles.WIDTH} height={ImgStyles.HEIGHT} />
 
           <div className="film-card__desc">
-            <h2 className="film-card__title">{title}</h2>
+            <h2 className="film-card__title">{name}</h2>
             <p className="film-card__meta">
               <span className="film-card__genre">{genre}</span>
-              <span className="film-card__year">{year}</span>
+              <span className="film-card__year">{released}</span>
             </p>
 
-            <FilmCardButtons />
+            <FilmCardButtons filmId={id} />
           </div>
         </div>
       </div>

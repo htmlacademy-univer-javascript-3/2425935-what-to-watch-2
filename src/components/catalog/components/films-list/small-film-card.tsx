@@ -1,13 +1,13 @@
 import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { RouteLinks } from '../../../../router/consts';
-import { FilmInfoProps } from '../../../../mocs/films';
 import { VideoPlayer } from '../../../videoplayer/videoplayer';
+import { FilmList } from '../../../../types/films';
 
 interface Props {
-  film: FilmInfoProps;
+  film: FilmList;
   isActive?: boolean;
-  onMouseEnter: (id: number) => void;
+  onMouseEnter: (id: string) => void;
   onMouseLeave: () => void;
 }
 
@@ -17,7 +17,7 @@ export const SmallFilmCard: React.FunctionComponent<Props> = ({
   onMouseEnter,
   onMouseLeave,
 }) => {
-  const { title, imageSrc, alt, width, height, id, video, bgSrc } = film;
+  const { id, name, previewImage, previewVideoLink } = film;
 
   const handleMouseEnter = useCallback(() => {
     onMouseEnter(id);
@@ -32,9 +32,9 @@ export const SmallFilmCard: React.FunctionComponent<Props> = ({
     >
       <div className="small-film-card__image">
         {isActive ? (
-          <VideoPlayer src={video} poster={bgSrc} />
+          <VideoPlayer src={previewVideoLink} poster={previewImage} />
         ) : (
-          <img src={imageSrc} alt={alt} width={width} height={height} />
+          <img src={previewImage} alt={name} />
         )}
       </div>
       <h3 className="small-film-card__title">
@@ -42,7 +42,7 @@ export const SmallFilmCard: React.FunctionComponent<Props> = ({
           className="small-film-card__link"
           to={`${RouteLinks.FILMS}/${id}`}
         >
-          {title}
+          {name}
         </Link>
       </h3>
     </article>

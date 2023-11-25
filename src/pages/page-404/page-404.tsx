@@ -4,7 +4,7 @@ import { Footer } from '../../components/footer/footer';
 import { Header } from '../../components/header/header';
 import { RouteLinks } from '../../router/consts';
 
-export const NotFoundPage: React.FunctionComponent = () => (
+export const Page404: React.FunctionComponent = () => (
   <div className="user-page">
     <Header className="user-page__head">
       <h1 className="page-title user-page__title">404 Not Found</h1>

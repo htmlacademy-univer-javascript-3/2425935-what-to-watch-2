@@ -1,17 +1,26 @@
 import React, {
   useState,
   useRef,
-  useEffect,
   useCallback,
   useMemo,
+  useEffect,
 } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
-import { formatTime, useFilmById } from '../../hooks/films';
+import { formatTime } from '../../hooks/films';
 import { RouteLinks } from '../../router/consts';
+import { Spinner } from '../../components/spinner/spinner';
+import { useAppDispatch, useAppSelector } from '../../hooks/store';
+import { fetchFilm } from '../../store/api-action';
 
-export const PlayerPage: React.FunctionComponent = () => {
+export const Player: React.FunctionComponent = () => {
   const { id } = useParams();
-  const film = useFilmById(id);
+  const dispatch = useAppDispatch();
+  const film = useAppSelector((state) => state.film);
+  const isLoading = useAppSelector((state) => state.isFilmLoading);
+
+  if (id && id !== film?.id) {
+    dispatch(fetchFilm(id));
+  }
 
   const navigate = useNavigate();
 
@@ -131,7 +140,11 @@ export const PlayerPage: React.FunctionComponent = () => {
     [id, navigate]
   );
 
-  if (!film) {
+  if (isLoading) {
+    return <Spinner view='display' />;
+  }
+
+  if (!film || !id) {
     return <Navigate to={RouteLinks.NOT_FOUND} />;
   }
 
@@ -139,9 +152,10 @@ export const PlayerPage: React.FunctionComponent = () => {
     <div className="player">
       <video
         ref={videoRef}
-        src={film.video}
+        src={film.videoLink}
         className="player__video"
-        poster={film.bgSrc}
+        poster={film.backgroundImage}
+        data-testid="video-player"
       />
 
       <button type="button" className="player__exit" onClick={exitPlayer}>
@@ -153,7 +167,7 @@ export const PlayerPage: React.FunctionComponent = () => {
           <div className="player__time">
             <progress
               className="player__progress"
-              value={togglerPosition > progress ? togglerPosition : progress}
+              value={togglerPosition > progress ? togglerPosition.toString() : progress.toString()}
               max="100"
               ref={progressRef}
             />
@@ -174,7 +188,9 @@ export const PlayerPage: React.FunctionComponent = () => {
         </div>
 
         <div className="player__controls-row">
-          <button type="button" className="player__play" onClick={togglePlay}>
+          <button type="button" data-testid="play-button"
+            className="player__play" onClick={togglePlay}
+          >
             {isPlaying ? (
               <svg viewBox="0 0 19 19" width="19" height="19">
                 <use xlinkHref="#pause"></use>
@@ -186,7 +202,7 @@ export const PlayerPage: React.FunctionComponent = () => {
             )}
             <span>{isPlaying ? 'Pause' : 'Play'}</span>
           </button>
-          <div className="player__name">{film.title}</div>
+          <div className="player__name">{film.name}</div>
 
           <button
             type="button"

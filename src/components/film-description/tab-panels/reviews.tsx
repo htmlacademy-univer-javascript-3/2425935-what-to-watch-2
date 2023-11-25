@@ -18,7 +18,7 @@ const FilmReview: FunctionComponent<Review> = ({ text, author, date, rating }) =
   </div>
 );
 
-export const FilmReviews: React.FunctionComponent = () => (
+export const Reviews: React.FunctionComponent = () => (
   <div className="film-card__reviews film-card__row">
     <div className="film-card__reviews-col">
       {reviewsData.slice(0, reviewsData.length / 2).map((review) => (

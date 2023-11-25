@@ -1,19 +1,21 @@
 import { FunctionComponent } from 'react';
-import { useFilmRating } from '../../../hooks/films';
-import { FilmInfoProps } from '../../../mocs/films';
+import { getFilmRating } from '../../../utils/utils';
+import { Film } from '../../../types/films';
 
 interface Props {
-  film: FilmInfoProps;
+  film: Film;
 }
 
 export const Overview: FunctionComponent<Props> = ({ film }) => {
   const {
     rating,
-    ratingCount,
-    description: { info, director, starring },
+    scoresCount,
+    director,
+    starring,
+    description,
   } = film;
 
-  const filmRatingLevel = useFilmRating(rating);
+  const filmRatingLevel = getFilmRating(rating);
 
   return (
     <>
@@ -21,18 +23,18 @@ export const Overview: FunctionComponent<Props> = ({ film }) => {
         <div className="film-rating__score">{rating}</div>
         <p className="film-rating__meta">
           <span className="film-rating__level">{filmRatingLevel}</span>
-          <span className="film-rating__count">{ratingCount} ratings</span>
+          <span className="film-rating__count">{scoresCount} ratings</span>
         </p>
       </div>
       <div className="film-card__text">
-        <p style={{ whiteSpace: 'pre-wrap' }}>{info}</p>
+        <p>{description}</p>
 
         <p className="film-card__director">
           <strong>Director: {director}</strong>
         </p>
 
         <p className="film-card__starring">
-          <strong>Starring: {starring}</strong>
+          <strong>Starring: {starring.join(', ')}</strong>
         </p>
       </div>
     </>
