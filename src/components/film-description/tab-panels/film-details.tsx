@@ -1,5 +1,5 @@
 import { FunctionComponent, ReactNode } from 'react';
-import { FilmInfoProps } from '../../../mocs/films';
+import { Film } from '../../../types/films';
 
 interface FilmDetailsItemProps {
   name: string;
@@ -18,18 +18,17 @@ export const FilmDetailsItem: FunctionComponent<FilmDetailsItemProps> = ({
 
 
 interface FilmDetailsProps {
-  film: FilmInfoProps;
+  film: Film;
 }
 
 export const FilmDetails: FunctionComponent<FilmDetailsProps> = ({ film }) => {
-  const { genre, year: released, description, runTime } = film;
-  const { director, starring } = description;
+  const { genre, runTime, director, released, starring } = film;
 
   return (
     <div className="film-card__text film-card__row">
       <div className="film-card__text-col">
         <FilmDetailsItem name="Director">{director}</FilmDetailsItem>
-        <FilmDetailsItem name="Starring">{starring}</FilmDetailsItem>
+        <FilmDetailsItem name="Starring">{starring.join(', ')}</FilmDetailsItem>
       </div>
 
       <div className="film-card__text-col">

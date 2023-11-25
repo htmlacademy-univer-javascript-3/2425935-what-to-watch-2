@@ -1,12 +1,12 @@
 import { FunctionComponent, useEffect, useMemo, useState } from 'react';
-import { FilmInfoProps } from '../../mocs/films';
 import { Overview } from './tab-panels/overview';
-import { FilmDetails } from './tab-panels/details';
-import { FilmReviews } from './tab-panels/reviews';
 import { Tabs } from './tabs/tabs';
+import { FilmDetails } from './tab-panels/film-details';
+import { Reviews } from './tab-panels/reviews';
+import { Film } from '../../types/films';
 
 interface Props {
-  film: FilmInfoProps;
+  film: Film;
 }
 
 const tabsTypes = ['Overview', 'Details', 'Reviews'] as const;
@@ -29,7 +29,7 @@ export const FilmDescription: FunctionComponent<Props> = ({ film }) => {
       case 'Details':
         return <FilmDetails film={film} />;
       case 'Reviews':
-        return <FilmReviews />;
+        return <Reviews />;
       default:
         return null;
     }

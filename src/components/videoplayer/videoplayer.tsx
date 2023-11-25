@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 
-interface VideoPlayerProps {
+interface Props {
   src: string;
   poster: string;
 }
 
 const VIDEO_TIMEOUT = 1000;
 
-const VideoPlayerComponent: React.FunctionComponent<VideoPlayerProps> = ({ src, poster }) => {
+export const VideoPlayer: React.FunctionComponent<Props> = ({ src, poster }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -22,4 +22,3 @@ const VideoPlayerComponent: React.FunctionComponent<VideoPlayerProps> = ({ src, 
     </video>
   );
 };
-export const VideoPlayer = React.memo(VideoPlayerComponent);

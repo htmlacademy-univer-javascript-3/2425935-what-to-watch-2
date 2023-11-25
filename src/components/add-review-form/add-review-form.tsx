@@ -2,11 +2,11 @@ import React, { useState, useCallback } from 'react';
 
 const RATING = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
 
-interface AddReviewFormProps {
-  onSubmit: (rating: string, reviewText: string) => void;
+interface Props {
+  filmId: string;
 }
 
-export const AddReview: React.FunctionComponent<AddReviewFormProps> = ({ onSubmit }) => {
+export const AddReviewForm: React.FunctionComponent<Props> = ({ filmId }) => {
   const [rating, setRating] = useState('');
   const [reviewText, setReviewText] = useState('');
 
@@ -25,14 +25,13 @@ export const AddReview: React.FunctionComponent<AddReviewFormProps> = ({ onSubmi
   );
 
   const handleSubmit = useCallback(
-    (e: React.FormEvent) => {
-      e.preventDefault();
-      onSubmit(rating, reviewText);
+    (event: React.FormEvent) => {
+      event.preventDefault();
 
       setRating('');
       setReviewText('');
     },
-    [onSubmit, rating, reviewText]
+    [filmId, rating, reviewText]
   );
 
   return (
