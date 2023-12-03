@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 import { Logo } from '../logo/logo';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { RouteLinks } from '../../router/consts';
 import { useAppDispatch, useAppSelector } from '../../hooks/store';
 import { ReducerName } from '../../types/reducer-name';
@@ -23,6 +23,7 @@ export const Header: React.FunctionComponent<Props> = ({
   className = '',
   isLoginPage = false,
 }) => {
+  const navigate = useNavigate();
   const authorizationStatus = useAppSelector(
     (state) => state[ReducerName.Authorzation].authorizationStatus
   );
@@ -34,7 +35,8 @@ export const Header: React.FunctionComponent<Props> = ({
 
   const handleClick = useCallback(() => {
     dispatch(logout());
-  }, [dispatch]);
+    navigate(RouteLinks.MAIN);
+  }, [dispatch, navigate]);
 
   const loginLogoutButton = useMemo(
     () =>
@@ -64,14 +66,16 @@ export const Header: React.FunctionComponent<Props> = ({
         <ul className="user-block">
           {hasAccess && (
             <li className="user-block__item">
-              <div className="user-block__avatar">
-                <img
-                  src={user?.avatarUrl}
-                  alt={user?.name}
-                  width={ImgStyles.WIDTH}
-                  height={ImgStyles.HEIGHT}
-                />
-              </div>
+              <Link to={RouteLinks.MY_LIST}>
+                <div className="user-block__avatar">
+                  <img
+                    src={user?.avatarUrl}
+                    alt={user?.name}
+                    width={ImgStyles.WIDTH}
+                    height={ImgStyles.HEIGHT}
+                  />
+                </div>
+              </Link>
             </li>
           )}
           <li className="user-block__item">{loginLogoutButton}</li>
