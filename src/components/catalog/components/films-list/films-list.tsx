@@ -7,12 +7,12 @@ import { Film } from '../../../../types/film';
 
 interface Props {
   length?: number;
-  similar?: Film[];
+  films?: Film[];
 }
 
 export const FilmsList: React.FunctionComponent<Props> = ({
   length,
-  similar,
+  films,
 }) => {
   const stateGenreFilms = useAppSelector(
     (state) => state[ReducerName.Main].genreFilms
@@ -31,7 +31,7 @@ export const FilmsList: React.FunctionComponent<Props> = ({
     setActiveFilm(null);
   }, []);
 
-  const filteredFilms = similar || stateGenreFilms;
+  const filteredFilms = films || stateGenreFilms;
 
   return (
     <div className="catalog__films-list">

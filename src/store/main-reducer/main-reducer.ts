@@ -6,6 +6,7 @@ import {
   fetchFilms,
   fetchPromo,
   setFavorite,
+  logout,
 } from '../api-actions';
 import { setError, setGenre } from '../actions';
 import { Genre } from '../../types/genre';
@@ -61,6 +62,10 @@ export const mainReducer = createSlice({
           state.promo = action.payload;
         }
         state.favoriteCount += action.payload.isFavorite ? 1 : -1;
+      })
+      .addCase(logout.fulfilled, (state) => {
+        state.favoriteFilms = [];
+        state.favoriteCount = 0;
       });
   },
 });

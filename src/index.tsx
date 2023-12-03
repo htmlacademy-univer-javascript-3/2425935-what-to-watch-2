@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom/client';
 import { App } from './App';
 import { Provider } from 'react-redux';
 import { store } from './store';
-import { fetchFilms } from './store/api-actions';
+import { checkAuth, fetchFavoriteFilms, fetchFilms, fetchPromo } from './store/api-actions';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
 store.dispatch(fetchFilms());
+store.dispatch(checkAuth());
+store.dispatch(fetchFavoriteFilms());
+store.dispatch(fetchPromo());
 
 root.render(
   <React.StrictMode>

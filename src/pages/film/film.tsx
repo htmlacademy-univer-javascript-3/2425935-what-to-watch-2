@@ -66,7 +66,7 @@ export const Film: React.FunctionComponent = () => {
                 <span className="film-card__year">{film.released}</span>
               </p>
 
-              <FilmCardButtons filmId={film.id} reviewButton={isAuth} />
+              <FilmCardButtons filmId={film.id} reviewButton={isAuth} isFavorite={film.isFavorite} />
             </div>
           </div>
         </div>
@@ -87,7 +87,7 @@ export const Film: React.FunctionComponent = () => {
         {!!similar.length && (
           <section className="catalog catalog--like-this">
             <h2 className="catalog__title">More like this</h2>
-            <FilmsList similar={similar} />
+            <FilmsList films={similar} />
           </section>
         )}
 

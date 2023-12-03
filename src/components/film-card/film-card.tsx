@@ -15,7 +15,7 @@ const enum ImgStyles {
 }
 
 export const FilmCard: React.FunctionComponent<Props> = ({ film }) => {
-  const { backgroundImage, name, genre, released, id, posterImage } = film;
+  const { backgroundImage, name, genre, released, id, posterImage, isFavorite } = film;
 
   return (
     <section className="film-card">
@@ -36,7 +36,7 @@ export const FilmCard: React.FunctionComponent<Props> = ({ film }) => {
               <span className="film-card__year">{released}</span>
             </p>
 
-            <FilmCardButtons filmId={id} />
+            <FilmCardButtons filmId={id} isFavorite={isFavorite} />
           </div>
         </div>
       </div>
