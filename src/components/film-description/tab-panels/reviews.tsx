@@ -1,36 +1,52 @@
 import { FunctionComponent } from 'react';
-import { Review, reviewsData } from '../../../data/reviews-data';
+import { useAppSelector } from '../../../hooks/store';
+import { ReducerName } from '../../../types/reducer-name';
+import { Review } from '../../../types/review';
 
-const FilmReview: FunctionComponent<Review> = ({ text, author, date, rating }) => (
-  <div className="review">
-    <blockquote className="review__quote">
-      <p className="review__text">{text}</p>
+const FilmReview: FunctionComponent<Review> = ({ comment, user, date, rating }) => {
+  const getDateString = (postDate: Date) =>
+    `${postDate.toLocaleString('eng', {
+      month: 'long',
+    })} ${postDate.getDate()}, ${postDate.getFullYear()}`;
 
-      <footer className="review__details">
-        <cite className="review__author">{author}</cite>
-        <time className="review__date" dateTime={date}>
-          {date}
-        </time>
-      </footer>
-    </blockquote>
+  return (
+    <div className="review">
+      <blockquote className="review__quote">
+        <p className="review__text">{comment}</p>
 
-    <div className="review__rating">{rating}</div>
-  </div>
-);
+        <footer className="review__details">
+          <cite className="review__author">{user}</cite>
+          <time
+            className="review__date"
+            dateTime={getDateString(new Date(date))}
+          >
+            {getDateString(new Date(date))}
+          </time>
+        </footer>
+      </blockquote>
 
-export const Reviews: React.FunctionComponent = () => (
-  <div className="film-card__reviews film-card__row">
-    <div className="film-card__reviews-col">
-      {reviewsData.slice(0, reviewsData.length / 2).map((review) => (
-        <FilmReview key={review.id} {...review} />
-      ))}
+      <div className="review__rating">{rating}</div>
     </div>
-    <div className="film-card__reviews-col">
-      {reviewsData
-        .slice(reviewsData.length / 2, reviewsData.length)
-        .map((review) => (
+  );
+};
+
+export const Reviews: FunctionComponent = () => {
+  const reviews = useAppSelector((state) => state[ReducerName.Film].reviews);
+
+  return reviews.length ? (
+    <div className="film-card__reviews film-card__row">
+      <div className="film-card__reviews-col">
+        {reviews.slice(reviews.length / 2, reviews.length).map((review) => (
           <FilmReview key={review.id} {...review} />
         ))}
+      </div>
+      <div className="film-card__reviews-col">
+        {reviews.slice(0, reviews.length / 2).map((review) => (
+          <FilmReview key={review.id} {...review} />
+        ))}
+      </div>
     </div>
-  </div>
-);
+  ) : (
+    <h1 style={{ color: 'black' }}>Комментариев еще нет...</h1>
+  );
+};

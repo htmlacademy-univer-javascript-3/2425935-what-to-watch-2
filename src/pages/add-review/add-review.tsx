@@ -8,12 +8,15 @@ import { fetchFilm } from '../../store/api-actions';
 import { Header } from '../../components/header/header';
 import { Poster } from '../../components/poster/poster';
 import { AddReviewForm } from '../../components/add-review-form/add-review-form';
+import { Page404 } from '../page-404/page-404';
 
 export const AddReview: React.FunctionComponent = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
   const film = useAppSelector((state) => state[ReducerName.Film].film);
-  const isLoading = useAppSelector((state) => state[ReducerName.Film].isLoading);
+  const isLoading = useAppSelector(
+    (state) => state[ReducerName.Film].isLoading
+  );
 
   useLayoutEffect(() => {
     if (id) {
@@ -21,19 +24,19 @@ export const AddReview: React.FunctionComponent = () => {
     }
   }, [id, dispatch]);
 
-  if (isLoading || !film) {
+  if (isLoading) {
     return <Spinner view='display' />;
   }
 
-  if ((!film && !isLoading) || !id) {
+  if (!id) {
     return <Navigate to={RouteLinks.NOT_FOUND} />;
   }
 
-  return (
+  return film ? (
     <section className="film-card film-card--full">
       <div className="film-card__header">
         <div className="film-card__bg">
-          <img src={film.backgroundColor} alt={film.name} />
+          <img src={film.backgroundImage} alt={film.name} />
         </div>
         <Header>
           <nav className="breadcrumbs">
@@ -60,5 +63,7 @@ export const AddReview: React.FunctionComponent = () => {
       </div>
       <AddReviewForm filmId={film.id} />
     </section>
+  ) : (
+    <Page404 />
   );
 };
