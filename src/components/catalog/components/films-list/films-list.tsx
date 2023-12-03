@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { SmallFilmCard } from './small-film-card';
 import { useAppSelector } from '../../../../hooks/store';
 import { Spinner } from '../../../spinner/spinner';
@@ -23,13 +23,13 @@ export const FilmsList: React.FunctionComponent<Props> = ({
 
   const [activeFilm, setActiveFilm] = useState<string | null>(null);
 
-  const handleCardHover = (filmId: string) => {
+  const handleCardHover = useCallback((filmId: string) => {
     setActiveFilm(filmId);
-  };
+  }, []);
 
-  const handleCardLeave = () => {
+  const handleCardLeave = useCallback(() => {
     setActiveFilm(null);
-  };
+  }, []);
 
   const filteredFilms = similar || stateGenreFilms;
 
