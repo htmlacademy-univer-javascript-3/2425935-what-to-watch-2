@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useMemo, useState } from 'react';
+import { FunctionComponent, useCallback, useEffect, useMemo, useState } from 'react';
 import { Overview } from './tab-panels/overview';
 import { Tabs } from './tabs/tabs';
 import { FilmDetails } from './tab-panels/film-details';
@@ -9,18 +9,18 @@ interface Props {
   film: Film;
 }
 
-const tabsTypes = ['Overview', 'Details', 'Reviews'] as const;
-type TTabs = typeof tabsTypes[number];
+const TAB_TYPES = ['Overview', 'Details', 'Reviews'] as const;
+type TTabs = typeof TAB_TYPES[number];
 
 export const FilmDescription: FunctionComponent<Props> = ({ film }) => {
   const [activeTab, setActiveTab] = useState<TTabs>('Overview');
 
-  const handleTabClick = (tab: string) => {
-    const foundTab = tabsTypes.find((currentTab) => tab === currentTab);
+  const handleTabClick = useCallback((tab: string) => {
+    const foundTab = TAB_TYPES.find((currentTab) => tab === currentTab);
     if (foundTab) {
       setActiveTab(foundTab);
     }
-  };
+  }, []);
 
   const panel = useMemo(() => {
     switch (activeTab) {

@@ -15,7 +15,7 @@ import { Spinner } from '../../components/spinner/spinner';
 import { Page404 } from '../page-404/page-404.tsx';
 
 
-export const MoviePage: React.FunctionComponent = () => {
+export const Film: React.FunctionComponent = () => {
   const { id } = useParams();
   const isAuth =
     useAppSelector(

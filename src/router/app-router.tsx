@@ -3,13 +3,13 @@ import React from 'react';
 import { SignIn } from '../pages/sign-in/sign-in';
 import { MyList } from '../pages/my-list/my-list';
 import { AddReview } from '../pages/add-review/add-review';
-import { MoviePage } from '../pages/movie-page/movie-page';
 import { RouteLinks } from './consts';
 import { Player } from '../pages/player/player';
 import { PrivateRoute } from './private-route';
 import { ScrollToTop } from '../components/scroll-to-top/scroll-to-top';
 import { Main } from '../pages/main/main';
 import { Page404 } from '../pages/page-404/page-404';
+import { Film } from '../pages/film/film';
 
 
 export const AppRouter: React.FunctionComponent = () => (
@@ -28,7 +28,7 @@ export const AppRouter: React.FunctionComponent = () => (
       />
       <Route path={RouteLinks.PLAYER} element={<Player />} />
       <Route path={RouteLinks.FILM}>
-        <Route index element={<MoviePage />} />
+        <Route index element={<Film />} />
         <Route
           path={RouteLinks.REVIEW}
           element={
