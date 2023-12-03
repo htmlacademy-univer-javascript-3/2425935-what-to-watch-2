@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { SmallFilmCard } from './small-film-card';
 import { useAppSelector } from '../../../../hooks/store';
 import { Spinner } from '../../../spinner/spinner';
+import { ReducerName } from '../../../../types/reducer-name';
 
 interface Props {
   length?: number;
@@ -12,9 +13,9 @@ export const FilmsList: React.FunctionComponent<Props> = ({
   length,
   genre,
 }) => {
-  const stateGenreFilms = useAppSelector((state) => state.genreFilms);
-  const stateFilms = useAppSelector((state) => state.films);
-  const isLoading = useAppSelector((state) => state.isFilmsLoading);
+  const stateGenreFilms = useAppSelector((state) => state[ReducerName.Main].genreFilms);
+  const stateFilms = useAppSelector((state) => state[ReducerName.Main].films);
+  const isLoading = useAppSelector((state) => state[ReducerName.Main].isFilmsLoading);
 
   const [activeFilm, setActiveFilm] = useState<string | null>(null);
 

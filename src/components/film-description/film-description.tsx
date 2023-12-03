@@ -3,7 +3,7 @@ import { Overview } from './tab-panels/overview';
 import { Tabs } from './tabs/tabs';
 import { FilmDetails } from './tab-panels/film-details';
 import { Reviews } from './tab-panels/reviews';
-import { Film } from '../../types/films';
+import { Film } from '../../types/film';
 
 interface Props {
   film: Film;

@@ -8,7 +8,8 @@ import { FilmsList } from '../../components/catalog/components/films-list/films-
 import { Footer } from '../../components/footer/footer';
 import { FilmDescription } from '../../components/film-description/film-description.tsx';
 import { useAppDispatch, useAppSelector } from '../../hooks/store';
-import { fetchFilm } from '../../store/api-action';
+import { ReducerName } from '../../types/reducer-name';
+import { fetchFilm } from '../../store/api-actions';
 import { Spinner } from '../../components/spinner/spinner';
 
 const FEW_FILM_LIST = 4;
@@ -16,8 +17,8 @@ const FEW_FILM_LIST = 4;
 export const MoviePage: React.FunctionComponent = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
-  const film = useAppSelector((state) => state.film);
-  const isLoading = useAppSelector((state) => state.isFilmLoading);
+  const film = useAppSelector((state) => state[ReducerName.Film].film);
+  const isLoading = useAppSelector((state) => state[ReducerName.Film].isLoading);
 
   useLayoutEffect(() => {
     if (id) {

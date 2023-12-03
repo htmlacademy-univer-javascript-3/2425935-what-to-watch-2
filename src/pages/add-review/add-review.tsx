@@ -3,16 +3,17 @@ import { Link, Navigate, useParams } from 'react-router-dom';
 import { RouteLinks } from '../../router/consts';
 import { useAppDispatch, useAppSelector } from '../../hooks/store';
 import { Spinner } from '../../components/spinner/spinner';
-import { fetchFilm } from '../../store/api-action';
+import { ReducerName } from '../../types/reducer-name';
+import { fetchFilm } from '../../store/api-actions';
 import { Header } from '../../components/header/header';
-import { AddReviewForm } from '../../components/add-review-form/add-review-form';
 import { Poster } from '../../components/poster/poster';
+import { AddReviewForm } from '../../components/add-review-form/add-review-form';
 
 export const AddReview: React.FunctionComponent = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
-  const film = useAppSelector((state) => state.film);
-  const isLoading = useAppSelector((state) => state.isFilmLoading);
+  const film = useAppSelector((state) => state[ReducerName.Film].film);
+  const isLoading = useAppSelector((state) => state[ReducerName.Film].isLoading);
 
   useLayoutEffect(() => {
     if (id) {

@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 import { getFilmRating } from '../../../utils/utils';
-import { Film } from '../../../types/films';
+import { Film } from '../../../types/film';
 
 interface Props {
   film: Film;

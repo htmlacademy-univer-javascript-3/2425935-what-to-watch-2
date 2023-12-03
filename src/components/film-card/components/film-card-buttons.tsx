@@ -18,7 +18,7 @@ export const FilmCardButtons: React.FunctionComponent<Props> = ({
 }) => (
   <div className="film-card__buttons">
     <Link to={`/player/${filmId}`} className="btn btn--play film-card__button" type="button">
-      <svg viewBox="0 0 19 19" width={ButtonSize.WIDTH} height={ButtonSize.HEIGHT}>
+      <svg viewBox={`0 0 ${ButtonSize.WIDTH} ${ButtonSize.HEIGHT}`} width={ButtonSize.WIDTH} height={ButtonSize.HEIGHT}>
         <use xlinkHref="#play-s"></use>
       </svg>
       <span>Play</span>
