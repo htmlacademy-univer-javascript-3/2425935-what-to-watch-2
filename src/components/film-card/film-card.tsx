@@ -2,7 +2,7 @@ import React from 'react';
 import { Header } from '../header/header';
 import { Poster } from '../poster/poster';
 import { FilmCardButtons } from './components/film-card-buttons';
-import { Film } from '../../types/films';
+import { Film } from '../../types/film';
 
 
 interface Props {

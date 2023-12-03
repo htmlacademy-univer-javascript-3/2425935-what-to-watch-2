@@ -1,5 +1,5 @@
 import { FunctionComponent, ReactNode } from 'react';
-import { Film } from '../../../types/films';
+import { Film } from '../../../types/film';
 
 interface FilmDetailsItemProps {
   name: string;

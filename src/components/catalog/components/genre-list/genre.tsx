@@ -1,19 +1,20 @@
 import React, { FormEvent, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { setGenre } from '../../../../store/action';
+import { setGenre } from '../../../../store/actions';
 import { useAppDispatch } from '../../../../hooks/store';
 
 interface Props {
   genre: string;
   isActive: boolean;
 }
+
 export const Genre: React.FunctionComponent<Props> = ({ genre, isActive }) => {
   const dispatch = useAppDispatch();
 
   const handleClick = useCallback(
     (event: FormEvent<HTMLAnchorElement>) => {
       event.preventDefault();
-      dispatch(setGenre({ genre }));
+      dispatch(setGenre(genre));
     },
     [dispatch, genre]
   );
