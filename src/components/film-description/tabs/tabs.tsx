@@ -9,14 +9,16 @@ const TABS = [
 
 interface Props {
   active: string;
-  onClick: (tab: string) => void;
+  onClick?: (tab: string) => void;
 }
 
 export const Tabs: FunctionComponent<Props> = ({ active, onClick}) => {
   const handleTabClick = useCallback(
     (event: React.MouseEvent<HTMLLIElement>) => {
       const { innerText } = event.currentTarget;
-      onClick(innerText);
+      if (onClick) {
+        onClick(innerText);
+      }
     },
     [onClick]
   );

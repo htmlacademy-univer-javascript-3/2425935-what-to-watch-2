@@ -6,7 +6,7 @@ interface FilmDetailsItemProps {
   children: ReactNode;
 }
 
-export const FilmDetailsItem: FunctionComponent<FilmDetailsItemProps> = ({
+const FilmDetailsItem: FunctionComponent<FilmDetailsItemProps> = ({
   name,
   children,
 }) => (
