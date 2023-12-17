@@ -5,19 +5,24 @@ interface Props {
   poster: string;
 }
 
-const VIDEO_TIMEOUT = 1000;
-
 export const VideoPlayer: React.FunctionComponent<Props> = ({ src, poster }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    setTimeout(() => {
-      videoRef.current?.play();
-    }, VIDEO_TIMEOUT);
+    let isMounted = true;
+
+    if (isMounted) {
+      setTimeout(() => {
+        videoRef.current?.play();
+      }, 1000);
+    }
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
-    <video ref={videoRef} src={src} poster={poster} className="player__video" loop muted>
+    <video data-testid="video-player" ref={videoRef} src={src} poster={poster} className="player__video" loop muted>
       <source src={src} type="video/mp4" />
     </video>
   );

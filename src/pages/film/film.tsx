@@ -30,11 +30,16 @@ export const Film: React.FunctionComponent = () => {
   const similar = useAppSelector((state) => state[ReducerName.Film].similar);
 
   useLayoutEffect(() => {
-    if (id) {
+    let isMounted = true;
+
+    if (isMounted && id) {
       dispatch(fetchFilm(id));
       dispatch(fetchSimilar(id));
       dispatch(fetchReviews(id));
     }
+    return () => {
+      isMounted = false;
+    };
   }, [id, dispatch]);
 
   if (isLoading) {

@@ -20,7 +20,7 @@ export const FilmCard: React.FunctionComponent<Props> = ({ film }) => {
   return (
     <section className="film-card">
       <div className="film-card__bg">
-        <img src={backgroundImage} alt={name} />
+        <img src={backgroundImage} alt={name} data-testid="film-background-image" />
       </div>
 
       <Header className="film-card__head" />

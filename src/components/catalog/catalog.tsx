@@ -39,7 +39,7 @@ export const Catalog: React.FunctionComponent<Props> = ({
 
       {showButton ? (
         <div className="catalog__more">
-          <Button label="Show more" className="catalog__button" type="button" onClick={handleClick}/>
+          <Button data-testid="show-more" label="Show more" className="catalog__button" type="button" onClick={handleClick}/>
         </div>
       ) : null}
     </section>
