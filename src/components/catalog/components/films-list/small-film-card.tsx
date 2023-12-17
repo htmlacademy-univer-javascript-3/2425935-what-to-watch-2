@@ -29,6 +29,7 @@ export const SmallFilmCard: React.FunctionComponent<Props> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={onMouseLeave}
       data-active={isActive}
+      data-testid="sample-film-title"
     >
       <div className="small-film-card__image">
         {isActive ? (

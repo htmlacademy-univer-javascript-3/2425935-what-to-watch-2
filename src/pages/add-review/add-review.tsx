@@ -19,9 +19,14 @@ export const AddReview: React.FunctionComponent = () => {
   );
 
   useLayoutEffect(() => {
-    if (id) {
+    let isMounted = true;
+
+    if (isMounted && id) {
       dispatch(fetchFilm(id));
     }
+    return () => {
+      isMounted = false;
+    };
   }, [id, dispatch]);
 
   if (isLoading) {

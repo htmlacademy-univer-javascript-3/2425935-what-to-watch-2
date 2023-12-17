@@ -34,7 +34,7 @@ export const FilmsList: React.FunctionComponent<Props> = ({
   const filteredFilms = films || stateGenreFilms;
 
   return (
-    <div className="catalog__films-list">
+    <div data-testid="films-list" className="catalog__films-list">
       {isLoading ? (
         <Spinner />
       ) : (
