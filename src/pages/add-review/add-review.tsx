@@ -34,7 +34,7 @@ export const AddReview: React.FunctionComponent = () => {
   }
 
   if (!id) {
-    return <Navigate to={RouteLinks.NOT_FOUND} />;
+    return <Navigate to={RouteLinks.NotFound} />;
   }
 
   return film ? (

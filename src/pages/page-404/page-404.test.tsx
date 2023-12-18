@@ -17,7 +17,7 @@ describe('Page404 Component', () => {
   it('should render 404 page', () => {
     const store = mockStore({
       [ReducerName.Authorzation]: {
-        authorizationStatus: AuthorizationStatus.AUTHORIZED,
+        authorizationStatus: AuthorizationStatus.Authorized,
         user: null,
       },
     });

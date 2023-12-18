@@ -1,5 +1,5 @@
 export const enum AuthorizationStatus {
-  NOT_AUTHORIZED = 'Not_Authorized',
-  AUTHORIZED = 'Authorized',
-  IDLE = 'Idle',
+  Unauthorized = 'Unauthorized',
+  Authorized = 'Authorized',
+  Idle = 'Idle',
 }

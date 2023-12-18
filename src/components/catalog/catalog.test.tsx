@@ -19,7 +19,7 @@ describe('Catalog Component', () => {
         genreFilms: [mockFilm],
         isFilmsLoading: false,
         films: films,
-        currentGenre: Genre.DEFAULT_GENRE,
+        currentGenre: Genre.DefaultGenre,
       },
     });
 

@@ -1,10 +1,10 @@
 export const enum RouteLinks {
-    MAIN = '/',
-    LOGIN = '/login',
-    MY_LIST = '/mylist',
-    PLAYER = '/player/:id',
-    FILMS = '/films',
-    FILM = '/films/:id',
-    REVIEW = 'review',
-    NOT_FOUND = '*',
+    Main = '/',
+    Login = '/login',
+    MyList = '/mylist',
+    Player = '/player/:id',
+    Films = '/films',
+    Film = '/films/:id',
+    Review = 'review',
+    NotFound = '*',
   }

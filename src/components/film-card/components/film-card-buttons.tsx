@@ -7,8 +7,8 @@ import { AuthorizationStatus } from '../../../types/authorization-status';
 import { setFavorite } from '../../../store/api-actions';
 
 const enum ButtonSize {
-  WIDTH = 19,
-  HEIGHT = 19,
+  Width = 19,
+  Height = 19,
 }
 
 interface Props {
@@ -28,12 +28,12 @@ export const FilmCardButtons: React.FunctionComponent<Props> = ({
   const authorizationStatus = useAppSelector(
     (state) => state[ReducerName.Authorzation].authorizationStatus
   );
-  const notAuth = authorizationStatus === AuthorizationStatus.NOT_AUTHORIZED;
+  const notAuth = authorizationStatus === AuthorizationStatus.Unauthorized;
 
   const handleSetFavorite = (event: FormEvent<HTMLButtonElement>) => {
     event.preventDefault();
     if (notAuth) {
-      navigate(RouteLinks.LOGIN);
+      navigate(RouteLinks.Login);
     }
     dispatch(setFavorite({ status: !isFavorite, filmId: filmId.toString() }));
   };
@@ -41,7 +41,7 @@ export const FilmCardButtons: React.FunctionComponent<Props> = ({
   return (
     <div className="film-card__buttons">
       <Link to={`/player/${filmId}`} className="btn btn--play film-card__button" type="button">
-        <svg viewBox="0 0 19 19" width={ButtonSize.WIDTH} height={ButtonSize.HEIGHT}>
+        <svg viewBox="0 0 19 19" width={ButtonSize.Width} height={ButtonSize.Height}>
           <use xlinkHref="#play-s"></use>
         </svg>
         <span>Play</span>
@@ -52,7 +52,7 @@ export const FilmCardButtons: React.FunctionComponent<Props> = ({
             <use xlinkHref="#in-list"></use>
           </svg>
         ) : (
-          <svg viewBox="0 0 19 20" width={ButtonSize.WIDTH} height={ButtonSize.HEIGHT + 1}>
+          <svg viewBox="0 0 19 20" width={ButtonSize.Width} height={ButtonSize.Height + 1}>
             <use xlinkHref="#add"></use>
           </svg>
         )}
@@ -60,7 +60,7 @@ export const FilmCardButtons: React.FunctionComponent<Props> = ({
         <span className="film-card__count">{myFilmsCount}</span>
       </button>
       {reviewButton ? (
-        <Link to={RouteLinks.REVIEW} className="btn film-card__button">
+        <Link to={RouteLinks.Review} className="btn film-card__button">
           Add review
         </Link>
       ) : null}

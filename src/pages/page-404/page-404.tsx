@@ -13,11 +13,9 @@ export const Page404: React.FunctionComponent = () => (
       <div className="sign-in__submit">
         <Link className="sign-in__btn"
           style={{textDecoration: 'none'}}
-          to={RouteLinks.MAIN}
+          to={RouteLinks.Main}
         >
-          <button className="sign-in__btn" type="submit">
-            На главную
-          </button>
+          На главную
         </Link>
       </div>
     </div>

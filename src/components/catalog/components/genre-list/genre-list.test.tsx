@@ -17,7 +17,7 @@ const mockFilms = [
 
 const initialState = {
   [ReducerName.Main]: {
-    currentGenre: Genre.DEFAULT_GENRE,
+    currentGenre: Genre.DefaultGenre,
     films: mockFilms,
   },
 };

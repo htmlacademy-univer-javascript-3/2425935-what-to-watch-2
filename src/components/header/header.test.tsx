@@ -12,7 +12,7 @@ describe('Header Component', () => {
   it('should render Header component for unauthorized user', () => {
     const store = mockStore({
       [ReducerName.Authorzation]: {
-        authorizationStatus: AuthorizationStatus.NOT_AUTHORIZED,
+        authorizationStatus: AuthorizationStatus.Unauthorized,
         user: null,
       },
     });
@@ -37,7 +37,7 @@ describe('Header Component', () => {
 
     const store = mockStore({
       [ReducerName.Authorzation]: {
-        authorizationStatus: AuthorizationStatus.AUTHORIZED,
+        authorizationStatus: AuthorizationStatus.Authorized,
         user: user,
       },
     });

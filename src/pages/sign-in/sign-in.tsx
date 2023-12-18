@@ -67,7 +67,7 @@ export const SignIn: React.FunctionComponent = () => {
   );
   const error = useAppSelector((state) => state[ReducerName.Main].error);
 
-  const handleSubmit = useCallback(
+  const handleFormSubmit = useCallback(
     (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
 
@@ -94,7 +94,7 @@ export const SignIn: React.FunctionComponent = () => {
 
   const pageTitle = useMemo(() => <h1 className="page-title user-page__title">Sign in</h1>, []);
 
-  if (authStatus === AuthorizationStatus.AUTHORIZED) {
+  if (authStatus === AuthorizationStatus.Authorized) {
     return <Navigate to="/" />;
   }
 
@@ -105,7 +105,7 @@ export const SignIn: React.FunctionComponent = () => {
       </Header>
 
       <div className="sign-in user-page__content">
-        <form onSubmit={handleSubmit} className="sign-in__form">
+        <form onSubmit={handleFormSubmit} className="sign-in__form">
           {error && (
             <div className="sign-in__message">
               <p data-testid="error">{error}</p>

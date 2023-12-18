@@ -31,21 +31,21 @@ export const SmallFilmCard: React.FunctionComponent<Props> = ({
       data-active={isActive}
       data-testid="sample-film-title"
     >
-      <div className="small-film-card__image">
-        {isActive ? (
-          <VideoPlayer src={previewVideoLink} poster={previewImage} />
-        ) : (
-          <img src={previewImage} alt={name} />
-        )}
-      </div>
-      <h3 className="small-film-card__title">
-        <Link
-          className="small-film-card__link"
-          to={`${RouteLinks.FILMS}/${id}`}
-        >
+      <Link
+        className="small-film-card__link"
+        to={`${RouteLinks.Films}/${id}`}
+      >
+        <div className="small-film-card__image">
+          {isActive ? (
+            <VideoPlayer src={previewVideoLink} poster={previewImage} />
+          ) : (
+            <img src={previewImage} alt={name} />
+          )}
+        </div>
+        <h3 className="small-film-card__title">
           {name}
-        </Link>
-      </h3>
+        </h3>
+      </Link>
     </article>
   );
 };

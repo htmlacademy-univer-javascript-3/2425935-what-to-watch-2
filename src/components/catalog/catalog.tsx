@@ -24,7 +24,7 @@ export const Catalog: React.FunctionComponent<Props> = ({
   const stateGenreFilms = useAppSelector((state) => state[ReducerName.Main].genreFilms);
   const [maxLength, setMaxLength] = useState(listLength || DEFAULT_LIST_LENGTH);
 
-  const handleClick = useCallback(()=>{
+  const handleShowMoreClick = useCallback(()=>{
     setMaxLength((prev) => prev + DEFAULT_LIST_LENGTH);
   },[]);
 
@@ -39,7 +39,7 @@ export const Catalog: React.FunctionComponent<Props> = ({
 
       {showButton ? (
         <div className="catalog__more">
-          <Button data-testid="show-more" label="Show more" className="catalog__button" type="button" onClick={handleClick}/>
+          <Button data-testid="show-more" label="Show more" className="catalog__button" type="button" onClick={handleShowMoreClick}/>
         </div>
       ) : null}
     </section>
