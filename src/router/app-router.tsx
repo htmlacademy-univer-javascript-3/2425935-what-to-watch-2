@@ -13,21 +13,21 @@ import { Film } from '../pages/film/film';
 
 export const AppRouter: React.FunctionComponent = () => (
   <Routes>
-    <Route path={RouteLinks.MAIN} element={<Main />} />
-    <Route path={RouteLinks.LOGIN} element={<SignIn />} />
+    <Route path={RouteLinks.Main} element={<Main />} />
+    <Route path={RouteLinks.Login} element={<SignIn />} />
     <Route
-      path={RouteLinks.MY_LIST}
+      path={RouteLinks.MyList}
       element={
         <PrivateRoute>
           <MyList />
         </PrivateRoute>
       }
     />
-    <Route path={RouteLinks.PLAYER} element={<Player />} />
-    <Route path={RouteLinks.FILM}>
+    <Route path={RouteLinks.Player} element={<Player />} />
+    <Route path={RouteLinks.Film}>
       <Route index element={<Film />} />
       <Route
-        path={RouteLinks.REVIEW}
+        path={RouteLinks.Review}
         element={
           <PrivateRoute>
             <AddReview />
@@ -35,6 +35,6 @@ export const AppRouter: React.FunctionComponent = () => (
         }
       />
     </Route>
-    <Route path={RouteLinks.NOT_FOUND} element={<Page404 />} />
+    <Route path={RouteLinks.NotFound} element={<Page404 />} />
   </Routes>
 );

@@ -24,7 +24,7 @@ const mockFilm = films[0];
 describe('AddReviewForm Component', () => {
   const store = mockStore({
     [ReducerName.Authorzation]: {
-      authorizationStatus: AuthorizationStatus.AUTHORIZED,
+      authorizationStatus: AuthorizationStatus.Authorized,
       user: null,
     },
     [ReducerName.Film]: {
@@ -36,7 +36,7 @@ describe('AddReviewForm Component', () => {
     [ReducerName.Main]: {
       films: [mockFilm],
       genreFilms: [],
-      currentGenre: Genre.DEFAULT_GENRE,
+      currentGenre: Genre.DefaultGenre,
       isFilmsLoading: false,
       error: null,
       promo: mockFilm,

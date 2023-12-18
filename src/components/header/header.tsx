@@ -8,8 +8,8 @@ import { AuthorizationStatus } from '../../types/authorization-status';
 import { logout } from '../../store/api-actions';
 
 const enum ImgStyles {
-  WIDTH = 63,
-  HEIGHT = 63,
+  Width = 63,
+  Height = 63,
 }
 
 interface Props {
@@ -29,31 +29,31 @@ export const Header: React.FunctionComponent<Props> = ({
   );
   const user = useAppSelector((state) => state[ReducerName.Authorzation].user);
 
-  const hasAccess = authorizationStatus === AuthorizationStatus.AUTHORIZED;
+  const hasAccess = authorizationStatus === AuthorizationStatus.Authorized;
 
   const dispatch = useAppDispatch();
 
-  const handleClick = useCallback(() => {
+  const handleSignOutClick = useCallback(() => {
     dispatch(logout());
-    navigate(RouteLinks.MAIN);
+    navigate(RouteLinks.Main);
   }, [dispatch, navigate]);
 
   const loginLogoutButton = useMemo(
     () =>
       hasAccess ? (
         <Link
-          to={RouteLinks.MAIN}
-          onClick={handleClick}
+          to={RouteLinks.Main}
+          onClick={handleSignOutClick}
           className="user-block__link"
         >
           Sign out
         </Link>
       ) : (
-        <Link to={RouteLinks.LOGIN} className="user-block__link">
+        <Link to={RouteLinks.Login} className="user-block__link">
           Sign in
         </Link>
       ),
-    [handleClick, hasAccess]
+    [handleSignOutClick, hasAccess]
   );
 
   return (
@@ -66,13 +66,13 @@ export const Header: React.FunctionComponent<Props> = ({
         <ul className="user-block">
           {hasAccess && (
             <li className="user-block__item">
-              <Link to={RouteLinks.MY_LIST}>
+              <Link to={RouteLinks.MyList}>
                 <div className="user-block__avatar">
                   <img
                     src={user?.avatarUrl}
                     alt={user?.name}
-                    width={ImgStyles.WIDTH}
-                    height={ImgStyles.HEIGHT}
+                    width={ImgStyles.Width}
+                    height={ImgStyles.Height}
                   />
                 </div>
               </Link>

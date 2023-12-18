@@ -24,7 +24,7 @@ describe('MyList Component', () => {
         favoriteFilms: [film],
       },
       [ReducerName.Authorzation]: {
-        authorizationStatus: AuthorizationStatus.AUTHORIZED,
+        authorizationStatus: AuthorizationStatus.Authorized,
         user: {
           name: 'John Doe',
           avatarUrl: 'path/to/avatar.jpg',

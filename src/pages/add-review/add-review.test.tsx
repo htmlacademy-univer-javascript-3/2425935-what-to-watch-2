@@ -32,9 +32,9 @@ describe('AddReview Component', () => {
 
     render(
       <Provider store={store}>
-        <MemoryRouter initialEntries={[`${RouteLinks.FILMS}/1/review`]}>
+        <MemoryRouter initialEntries={[`${RouteLinks.Films}/1/review`]}>
           <Routes>
-            <Route path={`${RouteLinks.FILMS}/:id/review`} element={<AddReview />} />
+            <Route path={`${RouteLinks.Films}/:id/review`} element={<AddReview />} />
           </Routes>
         </MemoryRouter>
       </Provider>
@@ -51,16 +51,16 @@ describe('AddReview Component', () => {
         isLoading: false,
       },
       [ReducerName.Authorzation]: {
-        authorizationStatus: AuthorizationStatus.AUTHORIZED,
+        authorizationStatus: AuthorizationStatus.Authorized,
         user: null,
       },
     });
 
     render(
       <Provider store={store}>
-        <MemoryRouter initialEntries={[`${RouteLinks.FILMS}/invalidID/review`]}>
+        <MemoryRouter initialEntries={[`${RouteLinks.Films}/invalidID/review`]}>
           <Routes>
-            <Route path={`${RouteLinks.FILMS}/:id/review`} element={<AddReview />} />
+            <Route path={`${RouteLinks.Films}/:id/review`} element={<AddReview />} />
           </Routes>
         </MemoryRouter>
       </Provider>
@@ -84,16 +84,16 @@ describe('AddReview Component', () => {
         isLoading: false,
       },
       [ReducerName.Authorzation]: {
-        authorizationStatus: AuthorizationStatus.AUTHORIZED,
+        authorizationStatus: AuthorizationStatus.Authorized,
         user: user,
       },
     });
 
     render(
       <Provider store={store}>
-        <MemoryRouter initialEntries={[`${RouteLinks.FILMS}/1/review`]}>
+        <MemoryRouter initialEntries={[`${RouteLinks.Films}/1/review`]}>
           <Routes>
-            <Route path={`${RouteLinks.FILMS}/:id/review`} element={<AddReview />} />
+            <Route path={`${RouteLinks.Films}/:id/review`} element={<AddReview />} />
           </Routes>
         </MemoryRouter>
       </Provider>

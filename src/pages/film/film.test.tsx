@@ -28,16 +28,16 @@ describe('Film Component', () => {
         isLoading: true,
       },
       [ReducerName.Authorzation]: {
-        authorizationStatus: AuthorizationStatus.AUTHORIZED,
+        authorizationStatus: AuthorizationStatus.Authorized,
         user: null,
       },
     });
 
     render(
       <Provider store={store}>
-        <MemoryRouter initialEntries={[`${RouteLinks.FILMS}/1`]}>
+        <MemoryRouter initialEntries={[`${RouteLinks.Films}/1`]}>
           <Routes>
-            <Route path={`${RouteLinks.FILMS}/:id`} element={<Film />} />
+            <Route path={`${RouteLinks.Films}/:id`} element={<Film />} />
           </Routes>
         </MemoryRouter>
       </Provider>
@@ -54,16 +54,16 @@ describe('Film Component', () => {
         isLoading: false,
       },
       [ReducerName.Authorzation]: {
-        authorizationStatus: AuthorizationStatus.AUTHORIZED,
+        authorizationStatus: AuthorizationStatus.Authorized,
         user: null,
       },
     });
 
     render(
       <Provider store={store}>
-        <MemoryRouter initialEntries={[`${RouteLinks.FILMS}/invalidID`]}>
+        <MemoryRouter initialEntries={[`${RouteLinks.Films}/invalidID`]}>
           <Routes>
-            <Route path={`${RouteLinks.FILMS}/:id`} element={<Film />} />
+            <Route path={`${RouteLinks.Films}/:id`} element={<Film />} />
           </Routes>
         </MemoryRouter>
       </Provider>
@@ -80,7 +80,7 @@ describe('Film Component', () => {
         similar: [similar],
       },
       [ReducerName.Authorzation]: {
-        authorizationStatus: AuthorizationStatus.AUTHORIZED,
+        authorizationStatus: AuthorizationStatus.Authorized,
         user: {
           name: 'John Doe',
           avatarUrl: 'path/to/avatar.jpg',
@@ -96,9 +96,9 @@ describe('Film Component', () => {
 
     render(
       <Provider store={store}>
-        <MemoryRouter initialEntries={[`${RouteLinks.FILMS}/1`]}>
+        <MemoryRouter initialEntries={[`${RouteLinks.Films}/1`]}>
           <Routes>
-            <Route path={`${RouteLinks.FILMS}/:id`} element={<Film />} />
+            <Route path={`${RouteLinks.Films}/:id`} element={<Film />} />
           </Routes>
         </MemoryRouter>
       </Provider>

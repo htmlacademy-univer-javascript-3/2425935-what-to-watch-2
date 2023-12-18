@@ -16,7 +16,7 @@ const mockStore = configureMockStore<State>(middlewares);
 describe('SignIn Component', () => {
   const store = mockStore({
     [ReducerName.Authorzation]: {
-      authorizationStatus: AuthorizationStatus.NOT_AUTHORIZED,
+      authorizationStatus: AuthorizationStatus.Unauthorized,
       user: null,
     },
     [ReducerName.Main]: {

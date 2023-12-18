@@ -25,7 +25,7 @@ describe('Player Component', () => {
         isLoading: false,
       },
       [ReducerName.Authorzation]: {
-        authorizationStatus: AuthorizationStatus.AUTHORIZED,
+        authorizationStatus: AuthorizationStatus.Authorized,
         user: {
           name: 'John Doe',
           avatarUrl: 'path/to/avatar.jpg',
@@ -38,9 +38,9 @@ describe('Player Component', () => {
 
     render(
       <Provider store={store}>
-        <MemoryRouter initialEntries={[`${RouteLinks.PLAYER}/1`]}>
+        <MemoryRouter initialEntries={[`${RouteLinks.Player}/1`]}>
           <Routes>
-            <Route path={`${RouteLinks.PLAYER}/:id`} element={<Player />} />
+            <Route path={`${RouteLinks.Player}/:id`} element={<Player />} />
           </Routes>
         </MemoryRouter>
       </Provider>
@@ -65,7 +65,7 @@ describe('Player Component', () => {
         isLoading: false,
       },
       [ReducerName.Authorzation]: {
-        authorizationStatus: AuthorizationStatus.AUTHORIZED,
+        authorizationStatus: AuthorizationStatus.Authorized,
         user: {
           name: 'John Doe',
           avatarUrl: 'path/to/avatar.jpg',
@@ -78,9 +78,9 @@ describe('Player Component', () => {
 
     render(
       <Provider store={store}>
-        <MemoryRouter initialEntries={[`${RouteLinks.PLAYER}/1`]}>
+        <MemoryRouter initialEntries={[`${RouteLinks.Player}/1`]}>
           <Routes>
-            <Route path={`${RouteLinks.PLAYER}/:id`} element={<Player />} />
+            <Route path={`${RouteLinks.Player}/:id`} element={<Player />} />
           </Routes>
         </MemoryRouter>
       </Provider>

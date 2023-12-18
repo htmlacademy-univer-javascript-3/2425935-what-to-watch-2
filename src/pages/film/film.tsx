@@ -14,13 +14,14 @@ import { AuthorizationStatus } from '../../types/authorization-status';
 import { Spinner } from '../../components/spinner/spinner';
 import { Page404 } from '../page-404/page-404.tsx';
 
+const MAX_LENGTH = 4;
 
 export const Film: React.FunctionComponent = () => {
   const { id } = useParams();
   const isAuth =
     useAppSelector(
       (state) => state[ReducerName.Authorzation].authorizationStatus
-    ) === AuthorizationStatus.AUTHORIZED;
+    ) === AuthorizationStatus.Authorized;
   const dispatch = useAppDispatch();
   const film = useAppSelector((state) => state[ReducerName.Film].film);
   const isLoading = useAppSelector(
@@ -47,7 +48,7 @@ export const Film: React.FunctionComponent = () => {
   }
 
   if (!id) {
-    return <Navigate to={RouteLinks.NOT_FOUND} />;
+    return <Navigate to={RouteLinks.NotFound} />;
   }
 
   return film ? (
@@ -92,7 +93,7 @@ export const Film: React.FunctionComponent = () => {
         {!!similar.length && (
           <section className="catalog catalog--like-this">
             <h2 className="catalog__title">More like this</h2>
-            <FilmsList films={similar} />
+            <FilmsList films={similar} length={MAX_LENGTH}/>
           </section>
         )}
 

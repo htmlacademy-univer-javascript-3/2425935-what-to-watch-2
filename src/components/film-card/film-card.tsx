@@ -10,8 +10,8 @@ interface Props {
 }
 
 const enum ImgStyles {
-  WIDTH = 218,
-  HEIGHT = 327,
+  Width = 218,
+  Height = 327,
 }
 
 export const FilmCard: React.FunctionComponent<Props> = ({ film }) => {
@@ -27,7 +27,7 @@ export const FilmCard: React.FunctionComponent<Props> = ({ film }) => {
 
       <div className="film-card__wrap">
         <div className="film-card__info">
-          <Poster src={posterImage} alt={name} width={ImgStyles.WIDTH} height={ImgStyles.HEIGHT} />
+          <Poster src={posterImage} alt={name} width={ImgStyles.Width} height={ImgStyles.Height} />
 
           <div className="film-card__desc">
             <h2 className="film-card__title">{name}</h2>

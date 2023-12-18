@@ -11,7 +11,7 @@ interface Props {
 export const Genre: React.FunctionComponent<Props> = ({ genre, isActive }) => {
   const dispatch = useAppDispatch();
 
-  const handleClick = useCallback(
+  const handleGenreClick = useCallback(
     (event: FormEvent<HTMLAnchorElement>) => {
       event.preventDefault();
       dispatch(setGenre(genre));
@@ -25,7 +25,7 @@ export const Genre: React.FunctionComponent<Props> = ({ genre, isActive }) => {
         isActive ? '--active' : ''
       }`}
     >
-      <Link to="#" className="catalog__genres-link" onClick={handleClick}>
+      <Link to="#" className="catalog__genres-link" onClick={handleGenreClick}>
         {genre}
       </Link>
     </li>

@@ -3,7 +3,7 @@ import { useAppDispatch } from '../../hooks/store';
 import { useNavigate } from 'react-router-dom';
 import { addReview } from '../../store/api-actions';
 
-const RATING = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+const RATING_LIST = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
 
 const MAX_LEN_REVIEW = 400;
 const MIN_LEN_REVIEW = 50;
@@ -31,7 +31,7 @@ export const AddReviewForm: React.FC<Props> = ({ filmId }) => {
     []
   );
 
-  const handleSubmit = useCallback(
+  const handleFormSubmit = useCallback(
     (event: React.FormEvent) => {
       event.preventDefault();
 
@@ -48,10 +48,10 @@ export const AddReviewForm: React.FC<Props> = ({ filmId }) => {
 
   return (
     <div className="add-review">
-      <form action="#" className="add-review__form" onSubmit={handleSubmit}>
+      <form action="#" className="add-review__form" onSubmit={handleFormSubmit}>
         <div className="rating">
           <div className="rating__stars">
-            {RATING.map((value) => (
+            {RATING_LIST.map((value) => (
               <React.Fragment key={value}>
                 <input
                   className="rating__input"

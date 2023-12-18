@@ -1,4 +1,4 @@
-enum TimeUnit {
+const enum TimeUnit {
   Hours = 'hours',
   Minutes = 'minutes',
   Seconds = 'seconds',

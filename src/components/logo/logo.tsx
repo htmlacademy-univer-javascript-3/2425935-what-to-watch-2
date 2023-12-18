@@ -8,7 +8,7 @@ interface Props {
 
 export const Logo: React.FunctionComponent<Props> = ({ className }) => (
   <div data-testid="logo" className="logo">
-    <Link data-testid="logo-link" className={`logo__link ${className ? className : ''}`} to={RouteLinks.MAIN}>
+    <Link data-testid="logo-link" className={`logo__link ${className ? className : ''}`} to={RouteLinks.Main}>
       <span data-testid="logo-letter" className="logo__letter logo__letter--1">W</span>
       <span data-testid="logo-letter" className="logo__letter logo__letter--2">T</span>
       <span data-testid="logo-letter" className="logo__letter logo__letter--3">W</span>

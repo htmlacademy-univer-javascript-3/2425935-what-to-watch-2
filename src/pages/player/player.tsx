@@ -31,6 +31,7 @@ export const Player: React.FunctionComponent = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [time, setTime] = useState({ current: 0, duration: 0 });
+  const [remainingTime, setRemainingTime] = useState(0);
 
   const progress = useMemo(() => (time.current / time.duration) * 100, [time]);
   const [togglerPosition, setTogglerPosition] = useState(0);
@@ -99,10 +100,12 @@ export const Player: React.FunctionComponent = () => {
     };
 
     const handleTimeUpdate = () => {
-      setTime((prevTime) => ({
-        ...prevTime,
-        current: videoElement.currentTime,
-      }));
+      if (videoRef.current) {
+        const currentTime = videoRef.current.currentTime;
+        const totalDuration = videoRef.current.duration;
+        setTime((prevTime) => ({ ...prevTime, current: currentTime }));
+        setRemainingTime(totalDuration - currentTime);
+      }
     };
 
     videoElement.addEventListener('loadedmetadata', handleLoadedMetadata);
@@ -119,7 +122,7 @@ export const Player: React.FunctionComponent = () => {
     };
   }, []);
 
-  const togglePlay = useCallback(() => {
+  const handleTogglePlay = useCallback(() => {
     if (videoRef.current) {
       if (isPlaying) {
         videoRef.current.pause();
@@ -130,13 +133,13 @@ export const Player: React.FunctionComponent = () => {
     }
   }, [isPlaying]);
 
-  const toggleFullScreen = useCallback(() => {
+  const handleToggleFullScreen = useCallback(() => {
     if (videoRef.current && videoRef.current.requestFullscreen) {
       videoRef.current.requestFullscreen();
     }
   }, []);
 
-  const exitPlayer = useCallback(
+  const handleExitPlayer = useCallback(
     () => id && navigate(`/films/${id}`),
     [id, navigate]
   );
@@ -146,7 +149,7 @@ export const Player: React.FunctionComponent = () => {
   }
 
   if (!film || !id) {
-    return <Navigate to={RouteLinks.NOT_FOUND} />;
+    return <Navigate to={RouteLinks.NotFound} />;
   }
 
   return (
@@ -159,7 +162,7 @@ export const Player: React.FunctionComponent = () => {
         data-testid="video-player"
       />
 
-      <button type="button" className="player__exit" onClick={exitPlayer}>
+      <button type="button" className="player__exit" onClick={handleExitPlayer}>
         Exit
       </button>
 
@@ -185,12 +188,12 @@ export const Player: React.FunctionComponent = () => {
               Toggler
             </div>
           </div>
-          <div className="player__time-value">{formatTime(time.current)}</div>
+          <div className="player__time-value">-{formatTime(remainingTime)}</div>
         </div>
 
         <div className="player__controls-row">
           <button type="button" data-testid="play-button"
-            className="player__play" onClick={togglePlay}
+            className="player__play" onClick={handleTogglePlay}
           >
             {isPlaying ? (
               <svg viewBox="0 0 19 19" width="19" height="19">
@@ -208,7 +211,7 @@ export const Player: React.FunctionComponent = () => {
           <button
             type="button"
             className="player__full-screen"
-            onClick={toggleFullScreen}
+            onClick={handleToggleFullScreen}
           >
             <svg viewBox="0 0 27 27" width="27" height="27">
               <use xlinkHref="#full-screen"></use>
