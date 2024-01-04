@@ -69,6 +69,9 @@ export const mainReducer = createSlice({
       .addCase(logout.fulfilled, (state) => {
         state.favoriteFilms = [];
         state.favoriteCount = 0;
+        if (state.promo) {
+          state.promo.isFavorite = false;
+        }
       });
   },
 });

@@ -1,10 +1,11 @@
-import React, { FormEvent } from 'react';
+import React, { FormEvent, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { RouteLinks } from '../../../router/consts';
 import { useAppDispatch, useAppSelector } from '../../../hooks/store';
 import { ReducerName } from '../../../types/reducer-name';
 import { AuthorizationStatus } from '../../../types/authorization-status';
-import { setFavorite } from '../../../store/api-actions';
+import { fetchFavoriteFilms, setFavorite } from '../../../store/api-actions';
+import { toast } from 'react-toastify';
 
 const enum ButtonSize {
   Width = 19,
@@ -29,6 +30,26 @@ export const FilmCardButtons: React.FunctionComponent<Props> = ({
     (state) => state[ReducerName.Authorzation].authorizationStatus
   );
   const notAuth = authorizationStatus === AuthorizationStatus.Unauthorized;
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const fetchData = async () => {
+      try {
+        if (isMounted) {
+          await dispatch(fetchFavoriteFilms());
+        }
+      } catch (error) {
+        toast.error('Error fetching favorite films');
+      }
+    };
+
+    fetchData();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [dispatch]);
 
   const handleSetFavorite = (event: FormEvent<HTMLButtonElement>) => {
     event.preventDefault();
